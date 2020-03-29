@@ -1,36 +1,40 @@
 import {combineReducers} from "redux";
 import {Action, ActionTypes} from "../actions/ActionTypes";
-import {Post} from "../interfaces";
+import {Comment, Post, User} from "../state/entities";
 
-function Post(state: [], action: Action) {
+function Posts(state: Post[], action: Action): Post[] {
+    if (!state) {
+        return []
+    }
     switch (action.type) {
-        case ActionTypes.AddPost:
-            if (action.payload) {
-                return [...state, action.payload];
+        case ActionTypes.ADD_POST:
+            if (action.payload && action.payload.post) {
+                return [...state, action.payload.post];
             }
             break;
-        case ActionTypes.RemovePost:
+        case ActionTypes.REMOVE_POST:
             if (action.payload && action.payload.post) {
                 const {id} = action.payload.post;
-                return state.filter((item : Post, index) => index !== id)
+                return state.filter((item: Post, index) => index !== id)
             }
             break;
         default :
             return state
     }
-    return state;
+
+    return state
 }
 
-function Comment() {
-
+function Comments(state: Comment[], action: Action): Comment[] {
+    return [];
 }
 
-function User() {
-
+function Users(state: User[], action: Action): User[] {
+    return [];
 }
 
 export default combineReducers({
-    Post,
-    Comment,
-    User
+    Posts,
+    Comments,
+    Users
 })

@@ -1,14 +1,17 @@
-import {Post} from "../interfaces";
+import {Post, Comment, User} from "../state/entities";
 
 export enum ActionTypes{
-    AddPost = "Add_Post",
-    RemovePost = "Remove_Post"
+    ADD_POST = "ADD_POST",
+    REMOVE_POST = "REMOVE_POST",
+    LOGOUT = "LOGOUT"
 }
 
 export interface Action{
     type : ActionTypes
     payload? : {
         post? : Post
+        comment? : Comment
+        user? : User
     }
     error?: {}
     meta? : {}

@@ -5,9 +5,43 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+
+  /*Var section*/
+  --primary-color : #2819ea;
+  --menu-text-color : aliceblue;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.NavBar {
+  padding : 1em;
+  background-color: var(--primary-color);
+}
+
+.NavButton{
+  margin : 0.5em;
+  padding: 0.5em;
+  color: var(--menu-text-color);
+}
+
+.NavButtonActive {
+  background-color: var(--menu-text-color);
+  color: var(--primary-color);
+}
+
+.MainBody{
+  margin: 2em;
+  position : center;
+  height: 100%;
+}
+
+.Footer {
+  padding: 0.5em;
+  background-color: var(--primary-color);
+  color: var(--menu-text-color);
+  position: sticky;
 }
