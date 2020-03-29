@@ -2,7 +2,7 @@ import React from "react";
 
 interface ButtonProps {
     active: Boolean
-    children: String
+    children: string
     onClick: () => void
 }
 

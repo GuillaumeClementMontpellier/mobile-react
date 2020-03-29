@@ -1,6 +1,6 @@
 import {combineReducers} from "redux";
 import {Action, ActionTypes} from "../actions/ActionTypes";
-import {Comment, Post, User} from "../state/entities";
+import {Comment, Post} from "../state/entities";
 
 function Posts(state: Post[], action: Action): Post[] {
     if (!state) {
@@ -29,8 +29,22 @@ function Comments(state: Comment[], action: Action): Comment[] {
     return [];
 }
 
-function Users(state: User[], action: Action): User[] {
-    return [];
+function Users(state: any, action: Action): any {
+    if (!state) {
+        return {}
+    }
+    switch (action.type) {
+        case ActionTypes.LOGIN:
+            if (action.payload) {
+                const pushedValue : any = {};
+                pushedValue[action.payload.body.userInfo._id] = action.payload.body.userInfo;
+                return Object.assign({}, state, pushedValue);
+            }
+            break;
+        default :
+            return state
+    }
+    return state
 }
 
 export default combineReducers({

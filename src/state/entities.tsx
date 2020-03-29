@@ -13,7 +13,7 @@ export interface Comment{
 }
 
 export interface User {
-    id : number
+    id : string
     name : String
 }
 

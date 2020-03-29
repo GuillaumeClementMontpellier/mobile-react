@@ -3,13 +3,21 @@ import {State} from "../state";
 import NavBar from "../components/NavBar";
 
 const mapStateToProps = (state: State) => {
-    return {
-        active: !state.params.activeUser,
-        admin: !!state.params.isAdmin
+    const index = state.params.activeUser;
+    if (index) {
+        return {
+            active: true,
+            admin: !!state.entities.Users[index].isAdmin
+        }
+    } else {
+        return {
+            active: false,
+            admin: false
+        }
     }
 };
 
-const mapDispatchToProps = (dispatch : any) => {
+const mapDispatchToProps = (dispatch: any) => {
     return {
         logoutCallback: () => {
             console.count("logout")
