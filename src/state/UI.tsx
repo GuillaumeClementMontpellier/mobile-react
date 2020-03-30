@@ -11,4 +11,14 @@ export interface CommentFilter{
 export interface UI{
     postFilter : PostFilter
     commentFilter : CommentFilter
+    error?: Error
+    message?: Message
+}
+
+export interface Error{
+    message: string
+}
+export interface Message{
+    message: string
+    color: string
 }

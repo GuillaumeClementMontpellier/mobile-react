@@ -3,11 +3,11 @@ import {Params} from "./params";
 import {UI} from "./UI";
 
 export interface State {
-    entities : {
+    entities: {
         Posts: any
-        Comments : any
-        Users : any
+        Comments: any
+        Users: any
     }
-    params : Params
-    UI : UI
+    params: Params
+    UI: UI
 }

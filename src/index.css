@@ -1,47 +1,91 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+	sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
 
-  /*Var section*/
-  --primary-color : #2819ea;
-  --menu-text-color : aliceblue;
+	/*Var section*/
+	--primary-color: #2819ea;
+	--menu-text-color: aliceblue;
+	--error-color: #ca0d19;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+	monospace;
+}
+
+
+/* Navigation */
+.link-button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	text-decoration: underline;
+	display: inline;
+	color: var(--menu-text-color);
 }
 
 .NavBar {
-  padding : 1em;
-  background-color: var(--primary-color);
+	padding: 1em;
+	background-color: var(--primary-color);
 }
 
-.NavButton{
-  margin : 0.5em;
-  padding: 0.5em;
-  color: var(--menu-text-color);
+.NavButton {
+	margin: 0.5em;
+	padding: 0.5em;
+	color: var(--menu-text-color);
 }
 
 .NavButtonActive {
-  background-color: var(--menu-text-color);
-  color: var(--primary-color);
+	background-color: var(--menu-text-color);
+	color: var(--primary-color);
 }
 
-.MainBody{
-  margin: 2em;
-  position : center;
-  height: 100%;
+/* Body */
+.MainBody {
+	margin: 2em;
+	position: center;
+	height: 100%;
 }
 
 .Footer {
-  padding: 0.5em;
-  background-color: var(--primary-color);
-  color: var(--menu-text-color);
-  position: sticky;
+	padding: 0.5em;
+	background-color: var(--primary-color);
+	color: var(--menu-text-color);
+	position: sticky;
+}
+
+/* Displays */
+.error-display {
+	padding: 1em;
+	margin: 1em;
+	background-color: var(--error-color);
+}
+
+.error-message {
+	margin-bottom: 1em;
+	color: var(--menu-text-color);
+}
+
+.message-display {
+	 padding: 1em;
+	 margin: 1em;
+ }
+
+.message-value {
+	margin-bottom: 1em;
+	color: var(--menu-text-color);
+}
+
+/* Form */
+.form-div {
+	margin: 1em;
+}
+
+.form-input {
+	margin-left: 1em;
 }

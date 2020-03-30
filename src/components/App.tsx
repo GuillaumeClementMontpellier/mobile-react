@@ -1,15 +1,47 @@
 import React from 'react';
 import {Redirect, Route, Switch} from "react-router";
 import Footer from "./Footer";
-import User from "./User";
 import DynNavBar from "../containers/DynNavBar";
 import Signal from "./Signals";
 import DynLogin from "../containers/DynLogin";
+import DynError from "../containers/DynError";
+import DynRegister from "../containers/DynRegister";
+import DynMessage from "../containers/DynMessage";
 
-function App() {
+export interface AppProps {
+    logged: Boolean
+    admin: boolean
+}
+
+function App({logged, admin}: AppProps) {
+
+    const adminRoute = admin ? (<div>
+            <Route path={"/signals"}>
+                <Signal/>
+            </Route>
+        </div>
+    ) : null;
+
+    const logRoute = logged ? (<div>{adminRoute}</div>) : (
+        <div>
+            <Route path={"/register"}>
+                <DynRegister/>
+            </Route>
+
+            <Route path={"/login"}>
+                <DynLogin/>
+            </Route>
+        </div>
+    );
+
     return (
         <div className={"App"}>
+
             <DynNavBar/>
+
+            <DynError/>
+
+            <DynMessage/>
 
             <div className={"MainBody"}>
                 <Switch>
@@ -20,17 +52,7 @@ function App() {
                     {/*<Route path={"/discussions"}>*/}
                     {/*</Route>*/}
 
-                    {/*<Route path={"/register"}>*/}
-                    {/*    <Register/>*/}
-                    {/*</Route>*/}
-
-                    <Route path={"/signals"}>
-                        <Signal/>
-                    </Route>
-
-                    <Route path={"/login"}>
-                        <DynLogin/>
-                    </Route>
+                    {logRoute}
 
                     {/*<Route path={"/user"}>*/}
                     {/*    <User/>*/}

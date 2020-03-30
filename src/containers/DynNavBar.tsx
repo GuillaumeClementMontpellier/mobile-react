@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import {State} from "../state";
 import NavBar from "../components/NavBar";
+import {logout} from "../actions/action";
 
 const mapStateToProps = (state: State) => {
     const index = state.params.activeUser;
@@ -20,7 +21,7 @@ const mapStateToProps = (state: State) => {
 const mapDispatchToProps = (dispatch: any) => {
     return {
         logoutCallback: () => {
-            console.count("logout")
+            dispatch(logout())
         }
     }
 };

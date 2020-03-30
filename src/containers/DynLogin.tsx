@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import {State} from "../state";
-import Form, {Field, FormProps} from "../components/Auth/Form"
+import Form from "../components/Utils/Form"
 import {login} from "../actions/async_action";
 
 const mapStateToProps = (state: State) => {

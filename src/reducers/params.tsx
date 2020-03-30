@@ -19,6 +19,7 @@ export default function (state: Params, action: Action): Params {
                     activeUser: action.payload.body.userInfo._id
                 };
             }
+            break;
         case ActionTypes.LOGOUT:
             return {...state, authToken: undefined, activeUser: undefined};
         default:

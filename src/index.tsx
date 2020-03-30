@@ -1,30 +1,33 @@
 import React from 'react';
+import {createBrowserHistory} from 'history'
 import ReactDOM from 'react-dom';
 import thunkMiddleware from 'redux-thunk'
 import {createLogger} from 'redux-logger'
 import {applyMiddleware, createStore} from 'redux'
+import {routerMiddleware} from 'connected-react-router'
 import {Provider} from 'react-redux'
 import rootReducer from './reducers'
 import './index.css';
-import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from "react-router-dom";
+import {ConnectedRouter} from 'connected-react-router'
+import DynApp from "./containers/DynApp";
 
-const loggerMiddleware = createLogger();
+const history = createBrowserHistory();
 
 const store = createStore(
-    rootReducer,
+    rootReducer(history),
     applyMiddleware(
+        routerMiddleware(history),
         thunkMiddleware, // lets us dispatch() functions
-        loggerMiddleware // neat middleware that logs actions
+        createLogger() // neat middleware that logs actions
     )
 );
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
-            <App/>
-        </BrowserRouter>
+        <ConnectedRouter history={history}>
+            <DynApp/>
+        </ConnectedRouter>
     </Provider>,
     document.getElementById('root')
 );

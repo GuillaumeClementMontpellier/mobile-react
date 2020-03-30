@@ -19,8 +19,8 @@ time, mark, audio, video, .link-button {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
 	font: inherit;
+	font-size: 100%;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -46,10 +46,38 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-.link-button {
-	 background-color: transparent;
-	 border: none;
-	 cursor: pointer;
-	 text-decoration: underline;
-	 display: inline;
- }
+h1 {
+	display: block;
+	font-size: 2em;
+	margin: 0.67em 0;
+	font-weight: bold;
+}
+h2 {
+	display: block;
+	font-size: 1.5em;
+	margin: 0.83em 0;
+	font-weight: bold;
+}
+h3 {
+	display: block;
+	font-size: 1.17em;
+	margin: 1em 0;
+	font-weight: bold;
+}
+h4 {
+	display: block;
+	margin: 1.33em 0;
+	font-weight: bold;
+}
+h5 {
+	display: block;
+	font-size: .83em;
+	margin: 1.67em 0;
+	font-weight: bold;
+}
+h6 {
+	display: block;
+	font-size: .67em;
+	margin: 2.33em 0;
+	font-weight: bold;
+}

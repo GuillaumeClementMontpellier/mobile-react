@@ -1,6 +1,6 @@
 import React from "react";
-import {Link, NavLink} from "react-router-dom";
-import Button from "./Button";
+import {NavLink} from "react-router-dom";
+import Button from "./Utils/Button";
 
 export interface NavBarProps {
     active: Boolean
@@ -29,7 +29,7 @@ export default function NavBar({active,admin, logoutCallback}: NavBarProps) {
         } else {
             return (<span>
                 {/*<NavLink to={'/user'} activeClassName={"NavButtonActive"} className={"NavButton"}>User</NavLink>*/}
-                <Button onClick={logoutCallback} active={true} className={"NavButton link-button"}>LogOut</Button>
+                <Button onClick={logoutCallback} active={true} className={"link-button"}>LogOut</Button>
             </span>)
         }
     };
