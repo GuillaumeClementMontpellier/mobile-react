@@ -1,21 +1,22 @@
 import {combineReducers} from "redux";
 import {Action, ActionTypes} from "../actions/ActionTypes";
-import {Comment, Post} from "../state/entities";
+import {Post} from "../state/entities";
 
-function Posts(state: Post[], action: Action): Post[] {
+// import {User, Comment, Post} from "../state/entities";
+
+function Posts(state: any, action: Action): any {
     if (!state) {
-        return []
+        return {}
     }
     switch (action.type) {
-        case ActionTypes.ADD_POST:
-            if (action.payload && action.payload.post) {
-                return [...state, action.payload.post];
-            }
-            break;
-        case ActionTypes.REMOVE_POST:
-            if (action.payload && action.payload.post) {
-                const {id} = action.payload.post;
-                return state.filter((item: Post, index) => index !== id)
+        case ActionTypes.FETCH_POSTS:
+            if (action.payload) {
+                let fetchedPosts : Post[] = action.payload;
+                let newOb : any = Object.assign({}, state);
+                for (const post of fetchedPosts){
+                    newOb[post._id] = post;
+                }
+                return newOb;
             }
             break;
         default :
@@ -25,8 +26,8 @@ function Posts(state: Post[], action: Action): Post[] {
     return state
 }
 
-function Comments(state: Comment[], action: Action): Comment[] {
-    return [];
+function Comments(state: any, action: Action): any {
+    return {};
 }
 
 function Users(state: any, action: Action): any {
@@ -37,7 +38,8 @@ function Users(state: any, action: Action): any {
         case ActionTypes.LOGIN:
             if (action.payload) {
                 const pushedValue : any = {};
-                pushedValue[action.payload.body.userInfo._id] = action.payload.body.userInfo;
+                let user = action.payload.body.userInfo;
+                pushedValue[user._id] = user;
                 return Object.assign({}, state, pushedValue);
             }
             break;

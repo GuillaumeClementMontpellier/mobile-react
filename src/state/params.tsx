@@ -1,6 +1,6 @@
 export interface Params{
-    visiblePosts : number[]
-    visibleComment : number[]
+    signaledPosts : string[]
+    signaledComments : string[]
 
     // if not logged in, all null / undefined, if logged, all values
     authToken? : string

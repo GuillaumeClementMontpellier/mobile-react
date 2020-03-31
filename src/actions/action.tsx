@@ -29,7 +29,7 @@ export function registerSuccess(body: string): Action {
 export function logout(){
     return (dispatch: any)=>{
         dispatch(clearLogin());
-        dispatch(display({color: "green", message: "Logged Out successfully"}))
+        dispatch(display({message: "Logged Out successfully"}))
     }
 }
 
@@ -61,5 +61,27 @@ export function display(message: Message) {
 export function clearDisplay() {
     return {
         type: ActionTypes.DISPLAY
+    }
+}
+export function fetchPostsStarted() {
+    return {
+        type: ActionTypes.FETCH_POSTS
+    }
+}
+export function fetchPostsSuccess(body: any) {
+    return {
+        type: ActionTypes.FETCH_POSTS,
+        payload: body
+    }
+}
+export function fetchSignaledStarted() {
+    return {
+        type: ActionTypes.SIGNALED_POST
+    }
+}
+export function fetchSignaledSuccess(body: any) {
+    return {
+        type: ActionTypes.SIGNALED_POST,
+        payload: body
     }
 }

@@ -18,8 +18,8 @@ const store = createStore(
     rootReducer(history),
     applyMiddleware(
         routerMiddleware(history),
-        thunkMiddleware, // lets us dispatch() functions
-        createLogger() // neat middleware that logs actions
+        thunkMiddleware, // lets us dispatch() functions / actions in async
+        createLogger() // neat middleware that logs actions TODO : remove in prod
     )
 );
 

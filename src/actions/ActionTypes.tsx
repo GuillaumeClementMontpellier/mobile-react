@@ -1,11 +1,11 @@
 export enum ActionTypes {
-    ADD_POST = "ADD_POST",
-    REMOVE_POST = "REMOVE_POST",
+    FETCH_POSTS = "FETCH_POSTS",
     LOGOUT = "LOGOUT",
     LOGIN = "LOGIN",
     REGISTER = "REGISTER",
     ERROR_DISPLAY = "ERROR_DISPLAY",
-    DISPLAY = "DISPLAY"
+    DISPLAY = "DISPLAY",
+    SIGNALED_POST = "SIGNALED_POST"
 }
 
 export interface Action {

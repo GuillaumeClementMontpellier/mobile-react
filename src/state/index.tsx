@@ -10,4 +10,5 @@ export interface State {
     }
     params: Params
     UI: UI
+    router: any
 }

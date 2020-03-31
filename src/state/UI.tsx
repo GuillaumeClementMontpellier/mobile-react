@@ -20,5 +20,4 @@ export interface Error{
 }
 export interface Message{
     message: string
-    color: string
 }

@@ -5,8 +5,8 @@ import {Params} from "../state/params";
 export default function (state: Params, action: Action): Params {
     if (!state) {
         return {
-            visibleComment: [],
-            visiblePosts: []
+            signaledPosts: [],
+            signaledComments: []
         }
     }
 
@@ -18,6 +18,24 @@ export default function (state: Params, action: Action): Params {
                     authToken: action.payload.body.authToken,
                     activeUser: action.payload.body.userInfo._id
                 };
+            }
+            break;
+        case ActionTypes.SIGNALED_POST:
+            if (action.payload) {
+                const signals = action.payload;
+                let sPosts = [...state.signaledPosts];
+                for (const post of signals.listPostSig) {
+                    if (!sPosts.includes(post._id)) {
+                        sPosts.push(post._id)
+                    }
+                }
+                let sComments = [...state.signaledComments];
+                for (const comment of signals.listCommentSig) {
+                    if (!sComments.includes(comment._id)) {
+                        sComments.push(comment._id)
+                    }
+                }
+                return {...state, signaledPosts: sPosts, signaledComments: sComments}
             }
             break;
         case ActionTypes.LOGOUT:

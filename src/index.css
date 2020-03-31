@@ -1,3 +1,8 @@
+html{
+	position: relative;
+	min-height: 100%;
+}
+
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,12 +10,13 @@ body {
 	sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	position: relative;
 
 	/*Var section*/
 	--primary-color: #2819ea;
+	--secondary-color: #bbe1ff;
 	--menu-text-color: aliceblue;
 	--error-color: #ca0d19;
+	--message-color: #008d00;
 }
 
 code {
@@ -47,16 +53,23 @@ code {
 
 /* Body */
 .MainBody {
-	margin: 2em;
+	margin: 1em;
 	position: center;
 	height: 100%;
 }
 
 .Footer {
-	padding: 0.5em;
 	background-color: var(--primary-color);
 	color: var(--menu-text-color);
-	position: sticky;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	overflow:hidden;
+}
+
+.Footer-div{
+	padding: 1em;
 }
 
 /* Displays */
@@ -72,9 +85,10 @@ code {
 }
 
 .message-display {
-	 padding: 1em;
-	 margin: 1em;
- }
+	padding: 1em;
+	margin: 1em;
+	background-color: var(--message-color);
+}
 
 .message-value {
 	margin-bottom: 1em;
@@ -88,4 +102,29 @@ code {
 
 .form-input {
 	margin-left: 1em;
+}
+
+/* Posts */
+.post-preview {
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	background-color: var(--secondary-color);
+}
+
+.post-preview{
+	cursor: pointer;
+	margin-bottom: 1em;
+}
+
+.post-prev-title {
+	margin-top: 0;
+}
+
+
+/* List of Posts */
+.post-list {
+	padding: 0.5em;
+}
+
+.list-title{
+	margin-top: 0;
 }

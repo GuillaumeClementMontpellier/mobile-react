@@ -10,17 +10,18 @@ export interface NavBarProps {
 
 export default function NavBar({active,admin, logoutCallback}: NavBarProps) {
 
-    let AdminInfo = () => {
-        if (admin){
+    let AdminLinks = () => {
+        if (admin) {
             return (<span>
-                <NavLink to={'/signals'} activeClassName={"NavButtonActive"} className={"NavButton"}>Signalements</NavLink>
+                <NavLink to={'/signals'} activeClassName={"NavButtonActive"}
+                         className={"NavButton"}>Signalements</NavLink>
             </span>)
         } else {
             return (<span/>)
         }
-    }
+    };
 
-    let UserInfo = () => {
+    let UserLinks = () => {
         if (!active) {
             return (<span>
                 <NavLink to={'/register'} activeClassName={"NavButtonActive"} className={"NavButton"}>Register</NavLink>
@@ -37,12 +38,12 @@ export default function NavBar({active,admin, logoutCallback}: NavBarProps) {
     return (
         <div className={"NavBar"}>
             {/*<NavLink to={'/home'} activeClassName={"NavButtonActive"} className={"NavButton"}>Home</NavLink>*/}
-            {/*<NavLink to={'/posts'} activeClassName={"NavButtonActive"} className={"NavButton"}>Posts</NavLink>*/}
+            <NavLink to={'/posts'} activeClassName={"NavButtonActive"} className={"NavButton"}>Posts</NavLink>
             {/*<NavLink to={'/discussions'} activeClassName={"NavButtonActive"} className={"NavButton"}>Discussions</NavLink>*/}
 
-            <AdminInfo/>
+            <AdminLinks/>
 
-            <UserInfo/>
+            <UserLinks/>
         </div>
     );
 }
