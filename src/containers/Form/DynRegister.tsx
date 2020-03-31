@@ -1,8 +1,8 @@
 import {connect} from 'react-redux'
-import {State} from "../state";
-import Form from "../components/Utils/Form"
-import {register} from "../actions/async_action";
-import {displayError} from "../actions/action";
+import {State} from "../../state";
+import Form from "../../components/Utils/Form"
+import {register} from "../../actions/async_action";
+import {displayError} from "../../actions/action";
 
 const mapStateToProps = (state: State) => {
     return {

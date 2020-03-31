@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
-import {State} from "../state"
-import Error from "../components/Utils/Error"
-import {clearError} from "../actions/action";
+import {State} from "../../state"
+import Error from "../../components/Utils/Error"
+import {clearError} from "../../actions/action";
 
 const mapStateToProps = (state: State) => {
     let message;

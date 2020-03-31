@@ -1,16 +1,16 @@
-import {Post} from "../state/entities";
-import {PostFilter} from "../state/UI";
-import {State} from "../state";
+import {Post} from "../../state/entities";
+import {PostFilter} from "../../state/UI";
+import {State} from "../../state";
 import {push} from "connected-react-router";
 import {connect} from "react-redux";
-import PostList from "../components/Posts/PostsList";
-import {fetchPosts, fetchSignaled} from "../actions/async_action";
+import PostList from "../../components/Posts/PostsList";
+import {fetchPosts} from "../../actions/async_action";
 
-const getVisiblePosts = (posts: any, filter: PostFilter, signaled: string[]) => {
+const getVisiblePosts = (posts: any, filter: PostFilter) => {
     let p: Post[] = [];
 
     for (const key in posts) {
-        if (posts.hasOwnProperty(key) && signaled.includes(key)) {
+        if (posts.hasOwnProperty(key)) {
             p.push(posts[key]);
         }
     }
@@ -28,10 +28,9 @@ const getVisiblePosts = (posts: any, filter: PostFilter, signaled: string[]) => 
 
 const mapStateToProps = (state: State) => {
     return {
-        name: "Signals",
-        posts: getVisiblePosts(state.entities.Posts, state.UI.postFilter, state.params.signaledPosts),
-        className: "signals-list",
-        token: state.params.authToken
+        name: "Posts",
+        posts: getVisiblePosts(state.entities.Posts, state.UI.postFilter),
+        className: ""
     }
 };
 const mapDispatchToProps = (dispatch: any) => {
@@ -39,10 +38,8 @@ const mapDispatchToProps = (dispatch: any) => {
         onClick: (id: string) => {
             dispatch(push("/post/" + id))
         },
-        loadPosts: (token?: string) => {
-            if (token) {
-                dispatch(fetchSignaled(token))
-            }
+        loadPosts: () => {
+            dispatch(fetchPosts())
         }
     }
 };

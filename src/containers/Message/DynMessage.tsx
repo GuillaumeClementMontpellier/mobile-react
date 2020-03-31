@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
-import {State} from "../state"
-import {clearDisplay} from "../actions/action";
-import Message from "../components/Utils/Message";
+import {State} from "../../state"
+import {clearDisplay} from "../../actions/action";
+import Message from "../../components/Utils/Message";
 
 const mapStateToProps = (state: State) => {
     return {

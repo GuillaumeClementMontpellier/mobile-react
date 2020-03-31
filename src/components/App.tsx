@@ -2,15 +2,15 @@ import React from 'react';
 import {Route, Switch} from "react-router";
 import Footer from "./Footer";
 import DynNavBar from "../containers/DynNavBar";
-import Signal from "./Signals";
+// import Signal from "./Signals";
 
-import DynLogin from "../containers/DynLogin";
-import DynError from "../containers/DynError";
-import DynRegister from "../containers/DynRegister";
-import DynMessage from "../containers/DynMessage";
-import DynPostList from "../containers/DynPostList";
+import DynLogin from "../containers/Form/DynLogin";
+import DynError from "../containers/Message/DynError";
+import DynRegister from "../containers/Form/DynRegister";
+import DynMessage from "../containers/Message/DynMessage";
+import DynPostList from "../containers/PList/DynPostList";
 import DynPost from "../containers/DynPost";
-import DynSignList from "../containers/DynSignList";
+import DynSignList from "../containers/PList/DynSignList";
 
 export interface AppProps {
     logged: Boolean

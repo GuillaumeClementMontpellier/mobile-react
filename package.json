@@ -1,6 +1,9 @@
 {
   "name": "mobile-react",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.x"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -24,6 +27,7 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "serve": "^11.3.0",
     "thunk": "0.0.1",
     "typescript": "^3.7.5"
   },
@@ -48,8 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "serve": "^11.3.0"
   }
 }
