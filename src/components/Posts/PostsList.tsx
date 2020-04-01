@@ -5,20 +5,27 @@ import PostPreview from "./PostPreview";
 interface PostListProps {
     name: string
     posts: Post[]
+    loaded: boolean
     onClick: (arg0: string) => void
-    loadPosts: (auth? : string) => void
+    loadPosts: (auth?: string) => void
     token?: string
+    fetching: boolean
 }
 
 
-export default function PostList({posts, loadPosts, token,name, onClick, className}: PostListProps & { className?: string }) {
-    const handleClick = () => {
-        loadPosts(token)
+export default function PostList(props: PostListProps & { className?: string }) {
+
+    if (!props.loaded) {
+        if (!props.fetching) {
+            props.loadPosts(props.token);
+        }
+        return <span/>;
     }
 
-    return (<div className={"post-list " + className}>
-        <h1 className={"list-title"}>{name}</h1>
-        {posts.map((p: Post) => <PostPreview post={p} key={p._id} onClick={onClick} className={"post-preview"}/>)}
-        <button onClick={handleClick}>Refresh</button>
+    return (<div className={"post-list " + props.className}>
+        <h1 className={"list-title"}>{props.name}</h1>
+        {props.posts.map((p: Post) => <PostPreview post={p} key={p._id} onClick={props.onClick}
+                                                   className={"post-preview"}/>)}
+        <button onClick={() => props.loadPosts(props.token)}>Refresh</button>
     </div>);
 }

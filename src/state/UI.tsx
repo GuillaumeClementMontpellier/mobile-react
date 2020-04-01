@@ -5,12 +5,13 @@ export enum PostFilter {
 }
 
 export interface CommentFilter{
-    category : String | undefined
+    category : string | undefined
 }
 
 export interface UI{
     postFilter : PostFilter
     commentFilter : CommentFilter
+    fetching: boolean
     error?: Error
     message?: Message
 }

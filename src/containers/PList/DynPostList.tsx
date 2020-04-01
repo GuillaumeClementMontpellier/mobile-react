@@ -4,9 +4,10 @@ import {State} from "../../state";
 import {push} from "connected-react-router";
 import {connect} from "react-redux";
 import PostList from "../../components/Posts/PostsList";
-import {fetchPosts} from "../../actions/async_action";
+import {fetchComments} from "../../actions/async_action/comments";
+import {fetchPosts} from "../../actions/async_action/posts";
 
-const getVisiblePosts = (posts: any, filter: PostFilter) => {
+const getVisiblePosts = (posts: any, filter: PostFilter): Post[] => {
     let p: Post[] = [];
 
     for (const key in posts) {
@@ -27,15 +28,22 @@ const getVisiblePosts = (posts: any, filter: PostFilter) => {
 };
 
 const mapStateToProps = (state: State) => {
+
+    let visiblePosts = getVisiblePosts(state.entities.Posts, state.UI.postFilter);
+
     return {
         name: "Posts",
-        posts: getVisiblePosts(state.entities.Posts, state.UI.postFilter),
-        className: ""
+        posts: visiblePosts,
+        className: "",
+        loaded: !!visiblePosts,
+        fetching : state.UI.fetching
     }
 };
+
 const mapDispatchToProps = (dispatch: any) => {
     return {
         onClick: (id: string) => {
+            dispatch(fetchComments(id));
             dispatch(push("/post/" + id))
         },
         loadPosts: () => {

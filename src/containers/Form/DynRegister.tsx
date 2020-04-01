@@ -1,8 +1,8 @@
 import {connect} from 'react-redux'
 import {State} from "../../state";
 import Form from "../../components/Utils/Form"
-import {register} from "../../actions/async_action";
-import {displayError} from "../../actions/action";
+import {register} from "../../actions/async_action/auth";
+import {displayError} from "../../actions/action_creator/display";
 
 const mapStateToProps = (state: State) => {
     return {
@@ -10,7 +10,7 @@ const mapStateToProps = (state: State) => {
         fields: [{name: "FirstName", type: "text"},
             {name: "LastName", type: "text"},
             {name: "Pseudo", type: "text"},
-            {name: "Mail", type: "text"},
+            {name: "Mail", type: "email"},
             {name: "Password", type: "password"},
             {name: "Confirm Password", type: "password"}],
         submitName: "Register",

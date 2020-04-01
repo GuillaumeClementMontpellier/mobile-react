@@ -1,6 +1,6 @@
 export interface Post {
     _id: string
-    isDiscussion: Boolean
+    isDiscussion: boolean
     publicationAuthor: User
     publicationTitle: string
     publicationDescription: string
@@ -18,7 +18,7 @@ export interface Comment {
     commentDate: Date
     commentScore: string[]
     category: string
-    isAnonymous: Boolean
+    isAnonymous: boolean
     reports: string[]
     respondTo?: number
 }
@@ -30,8 +30,8 @@ export interface User {
     userPseudo: string
     userMail: string
     userPassword: string
-    isAdmin: Boolean
-    isPrivate: Boolean
-    isBan: Boolean
+    isAdmin: boolean
+    isPrivate: boolean
+    isBan: boolean
 }
 

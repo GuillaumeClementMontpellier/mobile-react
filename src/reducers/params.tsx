@@ -1,8 +1,7 @@
 import {Action, ActionTypes} from "../actions/ActionTypes";
 import {Params} from "../state/params";
 
-
-export default function (state: Params, action: Action): Params {
+export default function(state: Params, action: Action): Params {
     if (!state) {
         return {
             signaledPosts: [],

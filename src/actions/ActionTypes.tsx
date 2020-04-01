@@ -1,11 +1,20 @@
 export enum ActionTypes {
-    FETCH_POSTS = "FETCH_POSTS",
+    // Post
+    FETCH_POST = "FETCH_POST",
+    SIGNALED_POST = "SIGNALED_POST",
+
+    // Comment
+    FETCH_COMMENT = "FETCH_COMMENT",
+    POST_COMMENT = "POST_COMMENT",
+
+    // Auth
     LOGOUT = "LOGOUT",
     LOGIN = "LOGIN",
     REGISTER = "REGISTER",
+
+    // Display
     ERROR_DISPLAY = "ERROR_DISPLAY",
-    DISPLAY = "DISPLAY",
-    SIGNALED_POST = "SIGNALED_POST"
+    DISPLAY = "DISPLAY"
 }
 
 export interface Action {

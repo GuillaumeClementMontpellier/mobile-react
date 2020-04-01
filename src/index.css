@@ -53,7 +53,7 @@ code {
 
 /* Body */
 .MainBody {
-	margin: 1em;
+	margin: 1em 1em 5em;
 	position: center;
 	height: 100%;
 }
@@ -115,10 +115,19 @@ code {
 	margin-bottom: 1em;
 }
 
-.post-prev-title {
+.post-title {
 	margin-top: 0;
 }
 
+.post-card {
+	background-color: var(--secondary-color);
+	padding: 1em;
+	margin: 1em 1em 2em;
+}
+
+.post-content {
+	margin-bottom: 1em;
+}
 
 /* List of Posts */
 .post-list {
@@ -127,4 +136,19 @@ code {
 
 .list-title{
 	margin-top: 0;
+}
+
+/* Comments */
+
+.comment-area {
+	display: block;
+	max-width: 100%;
+	margin-bottom: 1em;
+
+}
+
+.comment {
+	background-color: var(--menu-text-color);
+	margin: 1em;
+	padding: 1em;
 }

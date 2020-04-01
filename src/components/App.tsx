@@ -2,7 +2,6 @@ import React from 'react';
 import {Route, Switch} from "react-router";
 import Footer from "./Footer";
 import DynNavBar from "../containers/DynNavBar";
-// import Signal from "./Signals";
 
 import DynLogin from "../containers/Form/DynLogin";
 import DynError from "../containers/Message/DynError";

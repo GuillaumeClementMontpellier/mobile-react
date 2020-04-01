@@ -1,12 +1,12 @@
 import {connect} from 'react-redux'
 import {State} from "../../state";
 import Form from "../../components/Utils/Form"
-import {login} from "../../actions/async_action";
+import {login} from "../../actions/async_action/auth";
 
 const mapStateToProps = (state: State) => {
     return {
         name: "Login",
-        fields: [{name: "Mail", type: "text"}, {name: "Password", type: "password"}],
+        fields: [{name: "Mail", type: "email"}, {name: "Password", type: "password"}],
         submitName: "Log in",
         className: "Login"
     }

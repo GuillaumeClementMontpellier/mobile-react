@@ -14,12 +14,14 @@ import DynApp from "./containers/DynApp";
 
 const history = createBrowserHistory();
 
+const BASE_URL_RESSOURCES = "https://intense-cove-31113.herokuapp.com/";
+
 const store = createStore(
     rootReducer(history),
     applyMiddleware(
         routerMiddleware(history),
-        thunkMiddleware, // lets us dispatch() functions / actions in async
-        createLogger() // neat middleware that logs actions TODO : remove in prod
+        thunkMiddleware.withExtraArgument(BASE_URL_RESSOURCES), // lets us dispatch() functions / actions in async
+        // createLogger() // logs actions TODO : remove in prod
     )
 );
 

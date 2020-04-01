@@ -8,7 +8,7 @@ export interface NavBarProps {
     logoutCallback: () => void
 }
 
-export default function NavBar({active,admin, logoutCallback}: NavBarProps) {
+export default function NavBar({active, admin, logoutCallback}: NavBarProps) {
 
     let AdminLinks = () => {
         if (admin) {
