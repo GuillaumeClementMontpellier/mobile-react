@@ -14,6 +14,7 @@ export interface UI{
     fetching: boolean
     error?: Error
     message?: Message
+    callbackURL?: string
 }
 
 export interface Error{

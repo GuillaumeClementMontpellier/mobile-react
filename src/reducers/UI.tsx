@@ -7,11 +7,16 @@ export default function (state: UI, action: Action): UI {
             commentFilter: {category: undefined},
             postFilter: PostFilter.ALL_POSTS,
             fetching: false,
-            error: undefined,
-            message: undefined
         }
     }
     switch (action.type) {
+        case ActionTypes.ROUTE_CHANGE:
+            if (action.payload && action.payload.location && action.payload.location) {
+                if (action.payload.previousRoute) {
+                    return {...state, callbackURL: action.payload.previousRoute}
+                }
+            }
+            break;
         case ActionTypes.ERROR_DISPLAY:
             return Object.assign({}, state, {error: action.error, fetching: false});
         case ActionTypes.DISPLAY:
@@ -21,15 +26,13 @@ export default function (state: UI, action: Action): UI {
                 });
             }
             return Object.assign({}, state, {message: undefined});
-        case ActionTypes.SIGNALED_POST:
+        case ActionTypes.FETCH_SIGNALED_POST:
+        case ActionTypes.FETCH_SIGNALED_COMMENT:
         case ActionTypes.FETCH_POST:
         case ActionTypes.FETCH_COMMENT:
-            if (action.payload) {
-                return Object.assign({}, state, {fetching: false});
-            } else {
-                return Object.assign({}, state, {fetching: true});
-            }
+            return Object.assign({}, state, {fetching: !action.payload});
         default:
             return state
     }
+    return state
 }

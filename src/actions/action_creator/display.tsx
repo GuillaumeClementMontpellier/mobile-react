@@ -21,6 +21,7 @@ export function display(message: Message) {
         payload: message
     }
 }
+
 export function clearDisplay() {
     return {
         type: ActionTypes.DISPLAY

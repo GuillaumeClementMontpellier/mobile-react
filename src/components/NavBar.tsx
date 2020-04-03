@@ -39,6 +39,7 @@ export default function NavBar({active, admin, logoutCallback}: NavBarProps) {
         <div className={"NavBar"}>
             {/*<NavLink to={'/home'} activeClassName={"NavButtonActive"} className={"NavButton"}>Home</NavLink>*/}
             <NavLink to={'/posts'} activeClassName={"NavButtonActive"} className={"NavButton"}>Posts</NavLink>
+            <NavLink to={'/create/post'} activeClassName={"NavButtonActive"} className={"NavButton"}>Create Posts</NavLink>
             {/*<NavLink to={'/discussions'} activeClassName={"NavButtonActive"} className={"NavButton"}>Discussions</NavLink>*/}
 
             <AdminLinks/>

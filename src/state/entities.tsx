@@ -1,12 +1,12 @@
 export interface Post {
     _id: string
     isDiscussion: boolean
-    publicationAuthor: User
+    publicationAuthor: string
     publicationTitle: string
     publicationDescription: string
     publicationDate: Date
     publicationScore: string[]
-    isAnonymous: Boolean
+    isAnonymous: boolean
     reports: string[]
 }
 
@@ -35,3 +35,7 @@ export interface User {
     isBan: boolean
 }
 
+export interface category {
+    _id: string,
+    categoryName: string
+}

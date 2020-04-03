@@ -11,6 +11,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import {ConnectedRouter} from 'connected-react-router'
 import DynApp from "./containers/DynApp";
+import mid from "./mid/callbackMiddleWare";
 
 const history = createBrowserHistory();
 
@@ -21,6 +22,7 @@ const store = createStore(
     applyMiddleware(
         routerMiddleware(history),
         thunkMiddleware.withExtraArgument(BASE_URL_RESSOURCES), // lets us dispatch() functions / actions in async
+        mid,
         // createLogger() // logs actions TODO : remove in prod
     )
 );

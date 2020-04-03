@@ -1,8 +1,9 @@
 import {
+    deleteCommentStarted, deleteCommentSuccess,
     fetchCommentsStarted,
     fetchCommentsSuccess,
     postCommentsStarted,
-    postCommentsSuccess
+    postCommentsSuccess, signalCommentStarted, signalCommentSuccess
 } from "../action_creator/comments";
 import {display, displayError} from "../action_creator/display";
 
@@ -31,7 +32,7 @@ export function fetchComments(id: string) {
 
 }
 
-export function postComment(id: string, content: string) {
+export function postComment(id: string, comment: any) {
 
     return async (dispatch: any, getState: any, BASE_URL_RESSOURCES: string) => {
 
@@ -49,7 +50,8 @@ export function postComment(id: string, content: string) {
         const data = {
             idParent: id,
             commentAuthor: state.entities.Users[state.params.activeUser],
-            commentDescription: content,
+            commentDescription: comment.commentDescription,
+            isAnonymous : comment.isAnonymous,
             category: "5e7e263cee6a042a24e48d1d"
         };
 
@@ -70,6 +72,57 @@ export function postComment(id: string, content: string) {
         } else {
             let resText = await res.text();
             dispatch(displayError({message: resText}));
+        }
+    }
+
+}
+
+export function signalComment(commentId: string, token: string) {
+
+    return async (dispatch: any, getState: any, BASE_URL_RESSOURCES: string) => {
+        dispatch(signalCommentStarted());
+
+        const res = await fetch(BASE_URL_RESSOURCES + "signal/comment/" + commentId, {
+            method: 'PUT',
+            // mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': token
+            }
+        });
+
+        if (res.ok) {
+            const body = await res.json();
+            dispatch(signalCommentSuccess(body));
+        } else {
+            let resText = await res.text();
+            dispatch(displayError({message: resText}))
+        }
+    }
+
+}
+
+
+export function deleteComment(commentId: string, token: string) {
+
+    return async (dispatch: any, getState: any, BASE_URL_RESSOURCES: string) => {
+        dispatch(deleteCommentStarted());
+
+        const res = await fetch(BASE_URL_RESSOURCES + "comment/" + commentId, {
+            method: 'DELETE',
+            // mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': token
+            }
+        });
+
+        if (res.ok) {
+            const body = await res.json();
+            dispatch(deleteCommentSuccess(body));
+        } else {
+            let resText = await res.text();
+            dispatch(displayError({message: resText}))
         }
     }
 

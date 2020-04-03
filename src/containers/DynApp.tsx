@@ -6,12 +6,10 @@ const mapStateToProps = (state: State): AppProps => {
     const index = state.params.activeUser;
     if (index) {
         return {
-            logged: true,
-            admin: !!state.entities.Users[index].isAdmin
+            admin: state.entities.Users[index].isAdmin
         }
     } else {
         return {
-            logged: false,
             admin: false
         }
     }

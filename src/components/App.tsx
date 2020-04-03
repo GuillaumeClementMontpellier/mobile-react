@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from "react-router";
+import {Redirect, Route, Switch} from "react-router";
 import Footer from "./Footer";
 import DynNavBar from "../containers/DynNavBar";
 
@@ -8,15 +8,15 @@ import DynError from "../containers/Message/DynError";
 import DynRegister from "../containers/Form/DynRegister";
 import DynMessage from "../containers/Message/DynMessage";
 import DynPostList from "../containers/PList/DynPostList";
-import DynPost from "../containers/DynPost";
-import DynSignList from "../containers/PList/DynSignList";
+import DynPost from "../containers/Post/DynPost";
+import DynCreatePost from "../containers/Post/DynCreatePost";
+import Signals from "./Signals";
 
 export interface AppProps {
-    logged: Boolean
     admin: boolean
 }
 
-function App({logged, admin}: AppProps) {
+function App({admin}: AppProps) {
 
     return (
         <div className={"App"}>
@@ -32,20 +32,18 @@ function App({logged, admin}: AppProps) {
 
                     {admin ?
                         <Route path={"/signals"}>
-                            <DynSignList/>
+                            <Signals/>
                         </Route> : null}
 
-                    {logged ? null :
-                        <Route path={"/register"}>
-                            <DynRegister/>
-                        </Route>
-                    }
+                    <Route path={"/register"}>
+                        <DynRegister/>
+                    </Route>
 
-                    {logged ? null :
-                        <Route path={"/login"}>
-                            <DynLogin/>
-                        </Route>
-                    }
+                    <Route path={"/login"}>
+                        <DynLogin/>
+                    </Route>
+
+
                     <Route path={"/posts"}>
                         <DynPostList/>
                     </Route>
@@ -54,9 +52,13 @@ function App({logged, admin}: AppProps) {
                         <DynPost/>
                     </Route>
 
+                    <Route path={"/create/post"}>
+                        <DynCreatePost/>
+                    </Route>
+
                     {/*Invalid path redirect to 404*/}
                     <Route path={"/"}>
-                        <div>404</div>
+                        <Redirect to={"/posts"}/>
                     </Route>
                 </Switch>
             </div>

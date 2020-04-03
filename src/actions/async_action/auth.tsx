@@ -21,7 +21,13 @@ export function login(data: { userMail: string, userPassword: string }) {
             if (body.authToken) {
                 dispatch(loginSuccess(body));
                 dispatch(display({message: "Login success"}));
-                dispatch(push('/'))
+
+                let path = getState().UI.callbackURL;
+                if(!path){
+                    path = '/';
+                }
+
+                dispatch(push(path))
             } else {
                 dispatch(displayError(body))
             }
@@ -54,7 +60,6 @@ export function register(data: any) {
             dispatch(login({userMail: data.userMail, userPassword: data.userPassword}))
         } else {
             let resText = await res.text();
-            console.log(resText);
             dispatch(displayError({message: resText}))
         }
     }

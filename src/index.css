@@ -1,4 +1,4 @@
-html{
+html {
 	position: relative;
 	min-height: 100%;
 }
@@ -35,6 +35,14 @@ code {
 	color: var(--menu-text-color);
 }
 
+.link-button-reverse {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	display: inline;
+	color: var(--primary-color);
+}
+
 .NavBar {
 	padding: 1em;
 	background-color: var(--primary-color);
@@ -65,10 +73,10 @@ code {
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	overflow:hidden;
+	overflow: hidden;
 }
 
-.Footer-div{
+.Footer-div {
 	padding: 1em;
 }
 
@@ -98,10 +106,21 @@ code {
 /* Form */
 .form-div {
 	margin: 1em;
+	display: flex;
 }
 
 .form-input {
 	margin-left: 1em;
+}
+
+input[type="text"].form-input, input[type="email"].form-input, input[type="password"].form-input, .comment-area {
+	flex-grow: 1;
+}
+
+.comment-area {
+	padding: 1em;
+	margin-bottom: 1em;
+	display: block;
 }
 
 /* Posts */
@@ -110,13 +129,27 @@ code {
 	background-color: var(--secondary-color);
 }
 
-.post-preview{
+.post-preview {
 	cursor: pointer;
 	margin-bottom: 1em;
+}
+.post-title-card{
+	margin-bottom: 0.25em;
+	padding-bottom: 0.25em;
+	border-bottom: thin gray solid;
 }
 
 .post-title {
 	margin-top: 0;
+	display: inline-block;
+}
+
+.post-signal{
+	float: right;
+}
+
+.post-pseudo{
+	margin-bottom: 1em;
 }
 
 .post-card {
@@ -125,8 +158,16 @@ code {
 	margin: 1em 1em 2em;
 }
 
+.post-create {
+	background-color: var(--secondary-color);
+	padding: 1em;
+	margin: 1em 1em 2em;
+}
+
 .post-content {
 	margin-bottom: 1em;
+	padding-bottom: 1em;
+	border-bottom: thin gray solid;
 }
 
 /* List of Posts */
@@ -134,21 +175,28 @@ code {
 	padding: 0.5em;
 }
 
-.list-title{
+.list-title {
 	margin-top: 0;
 }
 
 /* Comments */
 
-.comment-area {
-	display: block;
-	max-width: 100%;
-	margin-bottom: 1em;
-
-}
-
 .comment {
 	background-color: var(--menu-text-color);
 	margin: 1em;
 	padding: 1em;
+}
+
+.comment-header{
+	border-bottom: thin gray solid;
+	padding-bottom: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.comment-author{
+	display: inline-block;
+}
+
+.comment-signal{
+	float: right;
 }

@@ -1,10 +1,8 @@
 import {Post} from "../../state/entities";
 import {PostFilter} from "../../state/UI";
 import {State} from "../../state";
-import {push} from "connected-react-router";
 import {connect} from "react-redux";
 import PostList from "../../components/Posts/PostsList";
-import {fetchComments} from "../../actions/async_action/comments";
 import {fetchPosts} from "../../actions/async_action/posts";
 
 const getVisiblePosts = (posts: any, filter: PostFilter): Post[] => {
@@ -42,10 +40,6 @@ const mapStateToProps = (state: State) => {
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        onClick: (id: string) => {
-            dispatch(fetchComments(id));
-            dispatch(push("/post/" + id))
-        },
         loadPosts: () => {
             dispatch(fetchPosts())
         }

@@ -6,6 +6,7 @@ export function loginStarted(): Action {
         type: ActionTypes.LOGIN
     }
 }
+
 export function registerStarted(): Action {
     return {
         type: ActionTypes.REGISTER
@@ -26,14 +27,14 @@ export function registerSuccess(body: string): Action {
     }
 }
 
-export function logout(){
-    return (dispatch: any)=>{
+export function logout() {
+    return (dispatch: any) => {
         dispatch(clearLogin());
         dispatch(display({message: "Logged Out successfully"}))
     }
 }
 
-function clearLogin(){
+function clearLogin() {
     return {
         type: ActionTypes.LOGOUT
     }

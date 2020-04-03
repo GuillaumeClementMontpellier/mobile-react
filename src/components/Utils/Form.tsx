@@ -20,7 +20,7 @@ export default function ({fields, name, submitName, callback, className}: FormPr
         }} className={"form"}>
             <h1>{name}</h1>
             {fields.map(t => <div key={t.name} className={"form-div"}>{t.name}<input type={t.type} name={t.name}
-                                                                          className={"form-input form-input-" + t.type}/></div>)}
+                                                                          className={"form-input"}/></div>)}
             <input type={"submit"} value={submitName} className={"form-submit form-" + submitName}/>
         </form>
     );

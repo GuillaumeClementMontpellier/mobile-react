@@ -19,7 +19,8 @@ export default function(state: Params, action: Action): Params {
                 };
             }
             break;
-        case ActionTypes.SIGNALED_POST:
+        case ActionTypes.FETCH_SIGNALED_COMMENT:
+        case ActionTypes.FETCH_SIGNALED_POST:
             if (action.payload) {
                 const signals = action.payload;
                 let sPosts = [...state.signaledPosts];
